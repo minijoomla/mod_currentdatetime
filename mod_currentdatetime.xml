@@ -39,6 +39,7 @@
 					type="items"
 					class="chzn-select chzn-sortable"
 					multiple="true"
+					default="analog,digital,gregorian,solar,lunar"
 					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC" />
 				<field

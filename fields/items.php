@@ -51,6 +51,9 @@ class JFormFieldItems extends JFormFieldList
 
 		$document->addScriptDeclaration($script);
 
+		if(!is_array($this->value))
+			$this->value = explode(',',$this->value);
+
 		$html = parent::getInput();
 		
 		return $html;
