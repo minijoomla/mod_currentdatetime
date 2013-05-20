@@ -79,7 +79,7 @@ class ModDateTimeHelper
 
 		$format         = $params->get('gregorian_date_format',JText::_('DATE_FORMAT_LC1'));
 
-		$translate      = $params->get('gregorian_date_language',false);
+		$translate      = $params->get('gregorian_date_language',1);
 
 		$gregorian_date = $date->calendar($format, true, $translate);
 
@@ -88,7 +88,9 @@ class ModDateTimeHelper
 			$gregorian_date = self::translateNumbers($gregorian_date);
 		}
 
-		return $gregorian_date;
+		$dir = $translate ? '' : ' dir="ltr" ';
+
+		return '<span'.$dir.'>'.$gregorian_date.'</span>';
 	}
 
 	public static function getSolarDate($params)
@@ -97,7 +99,7 @@ class ModDateTimeHelper
 
 		$format    = $params->get('solar_date_format',JText::_('DATE_FORMAT_LC1'));
 
-		$translate = $params->get('solar_date_language',false);
+		$translate = $params->get('solar_date_language',1);
 
 		if(!$translate)
 		{
@@ -109,7 +111,9 @@ class ModDateTimeHelper
 
 		$solar_date = self::translateNumbers($solar_date);
 
-		return $solar_date;
+		$dir = $translate ? '' : ' dir="rtl" ';
+
+		return '<span'.$dir.'>'.$solar_date.'</span>';
 	}
 
 	public static function getLunarDate($params)
@@ -118,7 +122,7 @@ class ModDateTimeHelper
 
 		$format     = $params->get('lunar_date_format',JText::_('DATE_FORMAT_LC1'));
 
-		$translate  = $params->get('lunar_date_language',false);
+		$translate  = $params->get('lunar_date_language',1);
 
 		if(!$translate)
 		{
@@ -130,7 +134,9 @@ class ModDateTimeHelper
 
 		$lunar_date = self::translateNumbers($lunar_date);
 
-		return $lunar_date;
+		$dir = $translate ? '' : ' dir="rtl" ';
+
+		return '<span'.$dir.'>'.$lunar_date.'</span>';
 	}
 }
 

@@ -50,19 +50,19 @@ if(in_array("analog", $items) || in_array("digital", $items))
 				echo '<div class="time analog">'.$analog_clock.'</div>';
 				break;
 			case 'digital':
-				echo '<div class="time digital" >'.$digital_clock.'<div id="digital_clock"></div></div>';
+				echo '<div class="time digital">'.$digital_clock.'<div id="digital_clock"></div></div>';
 				break;
 			case 'day':
 				echo '<div class="dayname">'.$day_name.'</div>';
 				break;
 			case 'gregorian':
-				echo '<div class="date gregorian" >'.$gregorian_date.'</div>';
+				echo '<div class="date gregorian">'.$gregorian_date.'</div>';
 				break;
 			case 'solar':
-				echo '<div class="date solar" >'.$solar_date.'</div>';
+				echo '<div class="date solar">'.$solar_date.'</div>';
 				break;
 			case 'lunar':
-				echo '<div class="date lunar" >'.$lunar_date.'</div>';
+				echo '<div class="date lunar">'.$lunar_date.'</div>';
 				break;
 		}
 	}
