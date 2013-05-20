@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.1"
+	client="site"
+	method="upgrade">
+	<name>mod_currentdatetime</name>
+	<author>Mohammad Hasani Eghteadr</author>
+	<creationDate>May 2013</creationDate>
+	<copyright>Copyright (C) 2005 - 2013 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
+	<authorUrl>www.mhehm.ir</authorUrl>
+	<version>3.1.1</version>
+	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
+		<folder>fields</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_currentdatetime.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_currentdatetime.ini</language>
+		<language tag="en-GB">en-GB.mod_currentdatetime.sys.ini</language>
+		<language tag="fa-IR">fa-IR.mod_currentdatetime.ini</language>
+		<language tag="fa-IR">fa-IR.mod_currentdatetime.sys.ini</language>
+		<language tag="ar-AA">ar-AA.mod_currentdatetime.ini</language>
+		<language tag="ar-AA">ar-AA.mod_currentdatetime.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_currentdatetime/fields">
+				<field
+					name="items"
+					type="items"
+					class="chzn-select chzn-sortable"
+					multiple="true"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC" />
+				<field
+					name="css"
+					type="textarea"
+					class="span6 ltr"
+					rows="10"
+					label="MOD_CURRENTDATETIME_FIELD_CSS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_CSS_DESC" />
+			</fieldset>
+			<fieldset name="analog" label="MOD_CURRENTDATETIME_ANALOG_CLOCK">
+				<!-- field
+					name="analog_clock"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field -->
+				<field
+					name="analog_seconds"
+					type="radio"
+					class="btn-group"
+					default="noSeconds"
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_DISPLAY_SECONDS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_DISPLAY_SECONDS_DESC">
+					<option value="1">JYES</option>
+					<option value="noSeconds">JNO</option>
+				</field>
+				<field
+					name="analog_radius"
+					type="text"
+					default="85"
+					filter="int"
+					class="validate-numeric"
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_RADIUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_RADIUS_DESC" />
+				<field
+					name="analog_gmtoffset"
+					type="timezone"
+					default=""
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_GMTOFFSET_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_GMTOFFSET_DESC">
+					<option value="">MOD_CURRENTDATETIME_LOCAL_TIME</option>
+				</field>
+				<field
+					name="analog_skin"
+					type="list"
+					default="swissRail"
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_SKIN_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_SKIN_DESC">
+					<option value="default">JDEFAULT</option>
+					<option value="swissRail">swissRail</option>
+					<option value="chunkySwiss">chunkySwiss</option>
+					<option value="chunkySwissOnBlack">chunkySwissOnBlack</option>
+					<option value="fancy">fancy</option>
+					<option value="machine">machine</option>
+					<option value="simonbaird_com">simonbaird_com</option>
+					<option value="classic">classic</option>
+					<option value="modern">modern</option>
+					<option value="simple">simple</option>
+					<option value="securephp">securephp</option>
+					<option value="Tes2">Tes2</option>
+					<option value="Lev">Lev</option>
+					<option value="Sand">Sand</option>
+					<option value="Sun">Sun</option>
+					<option value="Tor">Tor</option>
+					<option value="Cold">Cold</option>
+					<option value="Babosa">Babosa</option>
+					<option value="Tumb">Tumb</option>
+					<option value="Stone">Stone</option>
+					<option value="Disc">Disc</option>
+					<option value="watermelon">watermelon</option>
+					<option value="mochaUI1">mochaUI1</option>
+					<option value="mochaUI2">mochaUI2</option>
+					<option value="mochaUI3">mochaUI3</option>
+				</field>
+				<field
+					name="analog_showdigital"
+					type="radio"
+					class="btn-group"
+					default=""
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_SHOW_DIGITAL_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_SHOW_DIGITAL_DESC">
+					<option value="showDigital">JSHOW</option>
+					<option value="">JHIDE</option>
+				</field>
+				<field
+					name="analog_logclock"
+					type="radio"
+					class="btn-group"
+					default=""
+					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_LOGCLOCK_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_LOGCLOCK_DESC">
+					<option value="">JDEFAULT</option>
+					<option value="logClock">logClock</option>
+					<option value="logClockRev">logClockRev</option>
+				</field>
+			</fieldset>
+			<fieldset name="digital" label="MOD_CURRENTDATETIME_DIGITAL_CLOCK">
+				<!-- field
+					name="digital_clock"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field -->
+				<field
+					name="digital_format"
+					type="radio"
+					class="btn-group"
+					default="24"
+					label="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_FORMAT_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_FORMAT_DESC">
+					<option value="24">MOD_CURRENTDATETIME_DIGITAL_CLOCK_FORMAT_24</option>
+					<option value="12">MOD_CURRENTDATETIME_DIGITAL_CLOCK_FORMAT_12</option>
+				</field>
+				<field
+					name="digital_source"
+					type="radio"
+					class="btn-group"
+					default="client"
+					label="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_SOURCE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_SOURCE_DESC">
+					<option value="client">MOD_CURRENTDATETIME_DIGITAL_CLOCK_SOURCE_CLIENT</option>
+					<option value="server">MOD_CURRENTDATETIME_DIGITAL_CLOCK_SOURCE_SERVER</option>
+				</field>
+			</fieldset>
+			<!-- fieldset name="day" label="MOD_CURRENTDATETIME_DAY_NAME">
+				<field
+					name="day_name"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_DAY_NAME_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field>
+			</fieldset -->
+			<fieldset name="gregorian" label="MOD_CURRENTDATETIME_GREGORIAN_DATE">
+				<!-- field
+					name="gregorian_date"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field -->
+				<field
+					name="gregorian_date_language"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_LANGUAGE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LANGUAGE_DESC">
+					<option value="1">MOD_CURRENTDATETIME_TRANSLATE</option>
+					<option value="0">MOD_CURRENTDATETIME_ENGLISH</option>
+				</field>
+				<field
+					name="gregorian_date_format"
+					type="text"
+					size="15"
+					class="ltr"
+					label="JGLOBAL_DATE_FORMAT_LABEL"
+					description="JGLOBAL_DATE_FORMAT_DESC" />
+			</fieldset>
+			<fieldset name="solar" label="MOD_CURRENTDATETIME_SOLAR_DATE">
+				<!-- field
+					name="solar_date"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field -->
+				<field
+					name="solar_date_language"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_LANGUAGE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LANGUAGE_DESC">
+					<option value="1">MOD_CURRENTDATETIME_TRANSLATE</option>
+					<option value="0">MOD_CURRENTDATETIME_FARSI</option>
+				</field>
+				<field
+					name="solar_date_format"
+					type="text"
+					size="15"
+					class="ltr"
+					label="JGLOBAL_DATE_FORMAT_LABEL"
+					description="JGLOBAL_DATE_FORMAT_DESC" />
+			</fieldset>
+			<fieldset name="lunar" label="MOD_CURRENTDATETIME_LUNAR_DATE">
+				<!-- field
+					name="lunar_date"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
+					<option value="1">JSHOW</option>
+					<option value="0">JHIDE</option>
+				</field -->
+				<field
+					name="lunar_date_language"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_LANGUAGE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LANGUAGE_DESC">
+					<option value="1">MOD_CURRENTDATETIME_TRANSLATE</option>
+					<option value="0">MOD_CURRENTDATETIME_ARABIC</option>
+				</field>
+				<field
+					name="lunar_date_format"
+					type="text"
+					size="15"
+					class="ltr"
+					label="JGLOBAL_DATE_FORMAT_LABEL"
+					description="JGLOBAL_DATE_FORMAT_DESC" />
+				<field
+					name="lunar_day_setting"
+					type="integer"
+					first="-3"
+					last="3"
+					step="1"
+					default="0"
+					label="MOD_CURRENTDATETIME_FIELD_LUNAR_DAY_SETTING_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LUNAR_DAY_SETTING_DESC" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea"
+					rows="3"
+					class="ltr"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
