@@ -24,12 +24,12 @@
 		<filename>mod_currentdatetime.xml</filename>
 	</files>
 	<languages>
-		<language tag="en-GB">en-GB.mod_currentdatetime.ini</language>
-		<language tag="en-GB">en-GB.mod_currentdatetime.sys.ini</language>
-		<language tag="fa-IR">fa-IR.mod_currentdatetime.ini</language>
-		<language tag="fa-IR">fa-IR.mod_currentdatetime.sys.ini</language>
-		<language tag="ar-AA">ar-AA.mod_currentdatetime.ini</language>
-		<language tag="ar-AA">ar-AA.mod_currentdatetime.sys.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_currentdatetime.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_currentdatetime.sys.ini</language>
+		<language tag="fa-IR">language/fa-IR/fa-IR.mod_currentdatetime.ini</language>
+		<language tag="fa-IR">language/fa-IR/fa-IR.mod_currentdatetime.sys.ini</language>
+		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.ini</language>
+		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
