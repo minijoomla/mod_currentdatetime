@@ -17,8 +17,17 @@ if($params->get('css'))
 
 if(in_array("analog", $items) || in_array("digital", $items))
 {
-	JHtml::_('jquery.framework');
 	$document = JFactory::getDocument();
+
+	$joomlaVersion = new JVersion();
+	if($joomlaVersion->isCompatible('3'))
+	{
+		JHtml::_('jquery.framework');
+	}
+	else
+	{
+		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.min.js');
+	}
 
 	if(in_array("analog", $items))
 	{

@@ -39,17 +39,36 @@ class JFormFieldItems extends JFormFieldList
 	 */
 	protected function getInput()
 	{
-		JHtml::_('jquery.ui', array('core', 'sortable'));
-	
 		$document = JFactory::getDocument();
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.js');
 
-		$script =
-'jQuery(function(){
-	jQuery(".chzn-sortable").chosenSortable();
-});';
+		$joomlaVersion = new JVersion();
+		if($joomlaVersion->isCompatible('3'))
+		{
+			JHtml::_('jquery.ui', array('core', 'sortable'));
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.js');
+			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
+			$document->addScriptDeclaration($script);
+		}
+		else
+		{
+			$document->addStyleSheet(JURI::root().'modules/mod_currentdatetime/css/chosen.css');
 
-		$document->addScriptDeclaration($script);
+			// Joomla 2.5 sortable chosen with jQuery
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-noconflict.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/chosen.jquery.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.core.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.widget.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.mouse.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.sortable.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.js');
+			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
+			$document->addScriptDeclaration($script);
+
+			// Joomla 2.5 sortable chosen with mootools
+			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/chosen.mootools.min.js');
+			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/mootools-chosen-sortable.js');
+		}
 
 		if(!is_array($this->value))
 			$this->value = explode(',',$this->value);
