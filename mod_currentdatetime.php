@@ -27,7 +27,8 @@ foreach($items as $item)
 			$digital_clock = ModDateTimeHelper::getDigitalClock($params);
 			break;
 		case 'day':
-			$today    = new JDate();
+			$offset   = $params->get('offset', 'UTC');
+			$today    = new JDate('now', $offset);
 			$day_name = $today->calendar('l',true);
 			break;
 		case 'gregorian':
