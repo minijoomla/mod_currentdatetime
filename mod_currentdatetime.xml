@@ -11,7 +11,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
 	<authorUrl>www.mhehm.ir</authorUrl>
-	<version>3.1.1</version>
+	<version>3.1.1.2</version>
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
@@ -42,6 +42,14 @@
 					default="analog,digital,gregorian,solar,lunar"
 					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC" />
+				<field
+					name="offset"
+					type="timezone"
+					default="UTC"
+					label="MOD_CURRENTDATETIME_FIELD_OFFSET_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_OFFSET_DESC">
+					<option value="UTC">JLIB_FORM_VALUE_TIMEZONE_UTC</option>
+				</field>
 				<field
 					name="css"
 					type="textarea"
@@ -79,14 +87,6 @@
 					class="validate-numeric"
 					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_RADIUS_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_RADIUS_DESC" />
-				<field
-					name="analog_gmtoffset"
-					type="timezone"
-					default=""
-					label="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_GMTOFFSET_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_GMTOFFSET_DESC">
-					<option value="">MOD_CURRENTDATETIME_LOCAL_TIME</option>
-				</field>
 				<field
 					name="analog_skin"
 					type="list"
@@ -213,6 +213,11 @@
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
+				<field
+					name="gregorian_date_pretext"
+					type="text"
+					label="MOD_CURRENTDATETIME_FIELD_PRETEXT_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_PRETEXT_DESC" />
 			</fieldset>
 			<fieldset name="solar" label="MOD_CURRENTDATETIME_SOLAR_DATE">
 				<!-- field
@@ -242,6 +247,11 @@
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
+				<field
+					name="solar_date_pretext"
+					type="text"
+					label="MOD_CURRENTDATETIME_FIELD_PRETEXT_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_PRETEXT_DESC" />
 			</fieldset>
 			<fieldset name="lunar" label="MOD_CURRENTDATETIME_LUNAR_DATE">
 				<!-- field
@@ -280,6 +290,11 @@
 					default="0"
 					label="MOD_CURRENTDATETIME_FIELD_LUNAR_DAY_SETTING_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_LUNAR_DAY_SETTING_DESC" />
+				<field
+					name="lunar_date_pretext"
+					type="text"
+					label="MOD_CURRENTDATETIME_FIELD_PRETEXT_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_PRETEXT_DESC" />
 			</fieldset>
 			<fieldset name="advanced">
 				<field

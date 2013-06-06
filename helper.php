@@ -17,6 +17,7 @@ defined('_JEXEC') or die;
  */
 class ModDateTimeHelper
 {
+	// Analog Clock
 	public static function getAnalogClock($params)
 	{
 		$skin        = $params->get('analog_skin', 'swissRail');
@@ -24,28 +25,25 @@ class ModDateTimeHelper
 		$showseconds = $params->get('analog_seconds', 'noSeconds');
 		$showDigital = $params->get('analog_showdigital', '');
 		$logClock    = $params->get('analog_logclock', '');
-		$TimeZone    = $params->get('analog_gmtoffset', '');
-		if($TimeZone)
-		{
-			$dateTimeZone = new DateTimeZone($TimeZone);
-			$dateTime     = new DateTime("now", $dateTimeZone);
-			$GMTOffset    = $dateTimeZone->getOffset($dateTime) / 3600;
-		}
-		else
-		{
-			$GMTOffset = '';
-		}
+		$offset      = $params->get('offset', 'UTC');
+
+		$dateTimeZone = new DateTimeZone($offset);
+		$dateTime     = new DateTime("now", $dateTimeZone);
+		$GMTOffset    = $dateTimeZone->getOffset($dateTime) / 3600;
 
 		$clockString = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
 
 		return $clockString;
 	}
 
+	// Digital Clock
 	public static function getDigitalClock($params)
 	{
-		$html   = '';
+		$offset = $params->get('offset', 'UTC');
 		$source = $params->get('digital_source', 'client');
 		$format = $params->get('digital_format', 24);
+
+		$html   = '';
 
 		if($source == 'server')
 		{
@@ -58,9 +56,13 @@ class ModDateTimeHelper
 		}
 		else
 		{
+			echo $timestamp = time() - (int)substr(date('O'),0,3)*60*60; var_dump(new JDate());
+
+			$timestamp = ',"timestamp":"'.($timestamp * 1000).'"';
+
 			$script =
 'jQuery(document).ready(function(){
-	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"});
+	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"'.$timestamp.'});
 });';
 		}
 
@@ -70,6 +72,7 @@ class ModDateTimeHelper
 		return $html;
 	}
 
+	// Translate numbers
 	public static function translateNumbers($date)
 	{
 		$numbers = array ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
@@ -82,14 +85,15 @@ class ModDateTimeHelper
 		return $date;
 	}
 
+	// Gregorian Date
 	public static function getGregorianDate($params)
 	{
-		$date           = new JDate();
+		$translate = $params->get('gregorian_date_language',1);
+		$pretext   = JText::_($params->get('gregorian_date_pretext',''));
+		$format    = $params->get('gregorian_date_format',JText::_('DATE_FORMAT_LC1'));
+		$offset    = $params->get('offset', 'UTC');
 
-		$format         = $params->get('gregorian_date_format',JText::_('DATE_FORMAT_LC1'));
-
-		$translate      = $params->get('gregorian_date_language',1);
-
+		$date           = new JDate('now',$offset);
 		$gregorian_date = $date->calendar($format, true, $translate);
 
 		if($translate)
@@ -99,16 +103,18 @@ class ModDateTimeHelper
 
 		$dir = $translate ? '' : ' dir="ltr" ';
 
-		return '<span'.$dir.'>'.$gregorian_date.'</span>';
+		return $pretext.' <span'.$dir.'>'.$gregorian_date.'</span>';
 	}
 
+	// Solar Date
 	public static function getSolarDate($params)
 	{
-		$date      = new SolarDate();
-
-		$format    = $params->get('solar_date_format',JText::_('DATE_FORMAT_LC1'));
-
 		$translate = $params->get('solar_date_language',1);
+		$pretext   = JText::_($params->get('solar_date_pretext',''));
+		$format    = $params->get('solar_date_format',JText::_('DATE_FORMAT_LC1'));
+		$offset    = $params->get('offset', 'UTC');
+
+		$date      = new SolarDate('now',$offset);
 
 		if(!$translate)
 		{
@@ -117,21 +123,22 @@ class ModDateTimeHelper
 		}
 
 		$solar_date = $date->calendar($format, true, true);
-
 		$solar_date = self::translateNumbers($solar_date);
 
 		$dir = $translate ? '' : ' dir="rtl" ';
 
-		return '<span'.$dir.'>'.$solar_date.'</span>';
+		return $pretext.' <span'.$dir.'>'.$solar_date.'</span>';
 	}
 
+	// Lunar Date
 	public static function getLunarDate($params)
 	{
-		$date       = new LunarDate();
+		$translate = $params->get('lunar_date_language',1);
+		$pretext   = JText::_($params->get('lunar_date_pretext',''));
+		$format    = $params->get('lunar_date_format',JText::_('DATE_FORMAT_LC1'));
+		$offset    = $params->get('offset', 'UTC');
 
-		$format     = $params->get('lunar_date_format',JText::_('DATE_FORMAT_LC1'));
-
-		$translate  = $params->get('lunar_date_language',1);
+		$date      = new LunarDate('now',$offset);
 
 		if(!$translate)
 		{
@@ -140,15 +147,15 @@ class ModDateTimeHelper
 		}
 
 		$lunar_date = $date->calendar($format, true, $translate,$params->get('lunar_day_setting',0));
-
 		$lunar_date = self::translateNumbers($lunar_date);
 
 		$dir = $translate ? '' : ' dir="rtl" ';
 
-		return '<span'.$dir.'>'.$lunar_date.'</span>';
+		return $pretext.' <span'.$dir.'>'.$lunar_date.'</span>';
 	}
 }
 
+// Solar Date Class
 class SolarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";
@@ -348,6 +355,7 @@ class SolarDate extends JDate
 	}
 }
 
+// Lunar Date Class
 class LunarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";
