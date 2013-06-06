@@ -14,5 +14,5 @@ Module features:
 ...
 
 Used Project:
-Analog  Clock: https://github.com/simonbaird/CoolClock 
-Digital Clock: https://github.com/Lwangaman/jQuery-Clock-Plugin
+- Analog  Clock: https://github.com/simonbaird/CoolClock
+- Digital Clock: https://github.com/Lwangaman/jQuery-Clock-Plugin
