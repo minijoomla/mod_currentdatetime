@@ -22,9 +22,19 @@ class ModDateTimeHelper
 		$skin        = $params->get('analog_skin', 'swissRail');
 		$radius      = $params->get('analog_radius', 85);
 		$showseconds = $params->get('analog_seconds', 'noSeconds');
-		$GMTOffset   = $params->get('analog_gmtoffset', '');
 		$showDigital = $params->get('analog_showdigital', '');
 		$logClock    = $params->get('analog_logclock', '');
+		$TimeZone    = $params->get('analog_gmtoffset', '');
+		if($TimeZone)
+		{
+			$dateTimeZone = new DateTimeZone($TimeZone);
+			$dateTime     = new DateTime("now", $dateTimeZone);
+			$GMTOffset    = $dateTimeZone->getOffset($dateTime) / 3600;
+		}
+		else
+		{
+			$GMTOffset = '';
+		}
 
 		$clockString = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
 
@@ -54,7 +64,6 @@ class ModDateTimeHelper
 });';
 		}
 
-		
 		$document = JFactory::getDocument();
 		$document->addScriptDeclaration($script);
 
