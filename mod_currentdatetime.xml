@@ -54,6 +54,16 @@
 					<option value="UTC">JLIB_FORM_VALUE_TIMEZONE_UTC</option>
 				</field>
 				<field
+					name="jquery"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field
 					name="css"
 					type="textarea"
 					class="span6 ltr"
