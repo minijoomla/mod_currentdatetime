@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>Current Date & Time Module</name>
+		<description>This module displays the current date and time.</description>
+		<element>mod_currentdatetime</element>
+		<type>module</type>
+		<version>3.1.1.2</version>
+		<infourl title="Current Date & Time Module">http://extensions.joomla.org/extensions/calendars-a-events/time/content-date-a-time/24434</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">http://downloads.joomlacode.org/frsrelease/8/1/2/81286/mod_currentdatetime_3.1.1.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Mohammad Hasani Eghtedar</maintainer>
+		<maintainerurl>https://github.com/mhehm</maintainerurl>
+		<section>frs</section>
+		<targetplatform name="joomla" version="2.5" />
+	</update>
+	<update>
+		<name>Current Date & Time Module</name>
+		<description>This module displays the current date and time.</description>
+		<element>mod_currentdatetime</element>
+		<type>module</type>
+		<version>3.1.1.2</version>
+		<infourl title="Current Date & Time Module">http://extensions.joomla.org/extensions/calendars-a-events/time/content-date-a-time/24434</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip">http://downloads.joomlacode.org/frsrelease/8/1/2/81286/mod_currentdatetime_3.1.1.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Mohammad Hasani Eghtedar</maintainer>
+		<maintainerurl>https://github.com/mhehm</maintainerurl>
+		<section>frs</section>
+		<targetplatform name="joomla" version="3.0" />
+	</update>
+</updates>
