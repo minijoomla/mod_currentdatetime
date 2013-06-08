@@ -15,6 +15,7 @@
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
+		<folder>css</folder>
 		<folder>fields</folder>
 		<folder>js</folder>
 		<folder>language</folder>
@@ -30,6 +31,8 @@
 		<language tag="fa-IR">language/fa-IR/fa-IR.mod_currentdatetime.sys.ini</language>
 		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.ini</language>
 		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.sys.ini</language>
+		<language tag="ms-MY">language/ms-MY/ms-MY.mod_currentdatetime.ini</language>
+		<language tag="ms-MY">language/ms-MY/ms-MY.mod_currentdatetime.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
@@ -59,16 +62,6 @@
 					description="MOD_CURRENTDATETIME_FIELD_CSS_DESC" />
 			</fieldset>
 			<fieldset name="analog" label="MOD_CURRENTDATETIME_ANALOG_CLOCK">
-				<!-- field
-					name="analog_clock"
-					type="radio"
-					class="btn-group"
-					default="0"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_ANALOG_CLOCK_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field -->
 				<field
 					name="analog_seconds"
 					type="radio"
@@ -140,18 +133,18 @@
 					<option value="logClock">logClock</option>
 					<option value="logClockRev">logClockRev</option>
 				</field>
-			</fieldset>
-			<fieldset name="digital" label="MOD_CURRENTDATETIME_DIGITAL_CLOCK">
-				<!-- field
-					name="digital_clock"
+				<field
+					name="analog_source"
 					type="radio"
 					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field -->
+					default="client"
+					label="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_DESC">
+					<option value="client">MOD_CURRENTDATETIME_CLOCK_SOURCE_CLIENT</option>
+					<option value="gmt">MOD_CURRENTDATETIME_CLOCK_SOURCE_GMT</option>
+				</field>
+			</fieldset>
+			<fieldset name="digital" label="MOD_CURRENTDATETIME_DIGITAL_CLOCK">
 				<field
 					name="digital_format"
 					type="radio"
@@ -167,35 +160,14 @@
 					type="radio"
 					class="btn-group"
 					default="client"
-					label="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_SOURCE_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_SOURCE_DESC">
-					<option value="client">MOD_CURRENTDATETIME_DIGITAL_CLOCK_SOURCE_CLIENT</option>
-					<option value="server">MOD_CURRENTDATETIME_DIGITAL_CLOCK_SOURCE_SERVER</option>
+					label="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_DESC">
+					<option value="client">MOD_CURRENTDATETIME_CLOCK_SOURCE_CLIENT</option>
+					<option value="server">MOD_CURRENTDATETIME_CLOCK_SOURCE_SERVER</option>
+					<option value="gmt">MOD_CURRENTDATETIME_CLOCK_SOURCE_GMT</option>
 				</field>
 			</fieldset>
-			<!-- fieldset name="day" label="MOD_CURRENTDATETIME_DAY_NAME">
-				<field
-					name="day_name"
-					type="radio"
-					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_DAY_NAME_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field>
-			</fieldset -->
 			<fieldset name="gregorian" label="MOD_CURRENTDATETIME_GREGORIAN_DATE">
-				<!-- field
-					name="gregorian_date"
-					type="radio"
-					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field -->
 				<field
 					name="gregorian_date_language"
 					type="radio"
@@ -220,16 +192,6 @@
 					description="MOD_CURRENTDATETIME_FIELD_PRETEXT_DESC" />
 			</fieldset>
 			<fieldset name="solar" label="MOD_CURRENTDATETIME_SOLAR_DATE">
-				<!-- field
-					name="solar_date"
-					type="radio"
-					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field -->
 				<field
 					name="solar_date_language"
 					type="radio"
@@ -254,16 +216,6 @@
 					description="MOD_CURRENTDATETIME_FIELD_PRETEXT_DESC" />
 			</fieldset>
 			<fieldset name="lunar" label="MOD_CURRENTDATETIME_LUNAR_DATE">
-				<!-- field
-					name="lunar_date"
-					type="radio"
-					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC">
-					<option value="1">JSHOW</option>
-					<option value="0">JHIDE</option>
-				</field -->
 				<field
 					name="lunar_date_language"
 					type="radio"

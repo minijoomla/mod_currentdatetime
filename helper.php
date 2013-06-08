@@ -25,11 +25,11 @@ class ModDateTimeHelper
 		$showseconds = $params->get('analog_seconds', 'noSeconds');
 		$showDigital = $params->get('analog_showdigital', '');
 		$logClock    = $params->get('analog_logclock', '');
+		$source      = $params->get('analog_source', 'client');
 		$offset      = $params->get('offset', 'UTC');
 
-		$dateTimeZone = new DateTimeZone($offset);
-		$dateTime     = new DateTime("now", $dateTimeZone);
-		$GMTOffset    = $dateTimeZone->getOffset($dateTime) / 3600;
+		$date        = new JDate('now',$offset);
+		$GMTOffset   = $source == 'gmt' ? $date->getOffsetFromGMT(true) : '';
 
 		$clockString = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
 
@@ -54,15 +54,24 @@ class ModDateTimeHelper
 	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'","timestamp":servertime});
 });';
 		}
-		else
+		else if($source == 'gmt')
 		{
-			echo $timestamp = time() - (int)substr(date('O'),0,3)*60*60; var_dump(new JDate());
+			$date1     = new JDate('now',$offset);
+			$date2     = new JDate('now',date_default_timezone_get());
+			$timestamp = $date1->toUnix() - $date2->getOffsetFromGMT() + $date1->getOffsetFromGMT();
 
 			$timestamp = ',"timestamp":"'.($timestamp * 1000).'"';
 
 			$script =
 'jQuery(document).ready(function(){
 	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"'.$timestamp.'});
+});';
+		}
+		else
+		{
+			$script =
+'jQuery(document).ready(function(){
+	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"});
 });';
 		}
 
