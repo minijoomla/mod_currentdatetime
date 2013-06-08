@@ -275,6 +275,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" priority="1" name="Current Date & Time Module">http://joomlacode.org/gf/project/com_localise/scmsvn/?action=browse&amp;path=%2F*checkout*%2Ftrunk%2Flocalise-update.xml</server>
+		<server type="extension" priority="1" name="Current Date & Time Module">https://raw.github.com/mhehm/mod_currentdatetime/master/update.xml</server>
 	</updateservers>
 </extension>
