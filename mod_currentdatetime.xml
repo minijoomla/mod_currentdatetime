@@ -275,6 +275,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" priority="1" name="Current Date & Time Module">https://raw.github.com/mhehm/mod_currentdatetime/master/update.xml</server>
+		<server type="extension" priority="1" name="Current Date and Time Module">https://raw.github.com/mhehm/mod_currentdatetime/master/update.xml</server>
 	</updateservers>
 </extension>
