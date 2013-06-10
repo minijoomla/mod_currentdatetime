@@ -17,5 +17,5 @@ Module features:
 JED: http://extensions.joomla.org/extensions/calendars-a-events/time/content-date-a-time/24434
 
 Used Projects:
-Analog  Clock: https://github.com/simonbaird/CoolClock 
-Digital Clock: https://github.com/Lwangaman/jQuery-Clock-Plugin
+- Analog  Clock: https://github.com/simonbaird/CoolClock 
+- Digital Clock: https://github.com/Lwangaman/jQuery-Clock-Plugin
