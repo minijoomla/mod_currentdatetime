@@ -12,6 +12,8 @@ defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once dirname(__FILE__) . '/helper.php';
 
+$params->id = $module->id;
+
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
 $items = $params->get('items');
@@ -30,6 +32,9 @@ foreach($items as $item)
 			$offset   = $params->get('offset', 'UTC');
 			$today    = new JDate('now', $offset);
 			$day_name = $today->calendar('l',true);
+			break;
+		case 'timezone':
+			$timezone = ModDateTimeHelper::getTimeZoneText($params);
 			break;
 		case 'gregorian':
 			$gregorian_date = ModDateTimeHelper::getGregorianDate($params);

@@ -95,6 +95,7 @@ class JFormFieldItems extends JFormFieldList
 		$options['analog']    = JHtml::_('select.option', 'analog', JText::_('MOD_CURRENTDATETIME_ANALOG_CLOCK'));
 		$options['digital']   = JHtml::_('select.option', 'digital', JText::_('MOD_CURRENTDATETIME_DIGITAL_CLOCK'));
 		$options['day']       = JHtml::_('select.option', 'day', JText::_('MOD_CURRENTDATETIME_DAY_NAME'));
+		$options['timezone' ] = JHtml::_('select.option', 'timezone', JText::_('MOD_CURRENTDATETIME_TIMEZONE'));
 		$options['gregorian'] = JHtml::_('select.option', 'gregorian', JText::_('MOD_CURRENTDATETIME_GREGORIAN_DATE'));
 		$options['solar']     = JHtml::_('select.option', 'solar', JText::_('MOD_CURRENTDATETIME_SOLAR_DATE'));
 		$options['lunar' ]    = JHtml::_('select.option', 'lunar', JText::_('MOD_CURRENTDATETIME_LUNAR_DATE'));

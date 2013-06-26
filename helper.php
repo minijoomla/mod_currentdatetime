@@ -39,46 +39,19 @@ class ModDateTimeHelper
 	// Digital Clock
 	public static function getDigitalClock($params)
 	{
-		$offset = $params->get('offset', 'UTC');
-		$source = $params->get('digital_source', 'client');
-		$format = $params->get('digital_format', 24);
+		$leoclock = new stdClass();
 
-		$html   = '';
+		$leoclock->offset       = $params->get('offset', 'UTC');
+		$leoclock->format       = $params->get('digital_format', '12h');
+		$leoclock->seconds      = $params->get('digital_seconds', 1);
+		$leoclock->leadingZeros = $params->get('digital_leadingZeros', 1);
 
-		if($source == 'server')
-		{
-			$html   = "<input id='servertime' type='hidden' val='".time()."' />";
-			$script =
-'jQuery(document).ready(function(){
-	servertime = parseFloat( jQuery("input#servertime").val() ) * 1000;
-	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'","timestamp":servertime});
-});';
-		}
-		else if($source == 'gmt')
-		{
-			$date1     = new JDate('now',$offset);
-			$date2     = new JDate('now',date_default_timezone_get());
-			$timestamp = $date1->toUnix() - $date2->getOffsetFromGMT() + $date1->getOffsetFromGMT();
+		date_default_timezone_set($leoclock->offset); 
+		$leoclock->time = date("F d, Y H:i:s");
 
-			$timestamp = ',"timestamp":"'.($timestamp * 1000).'"';
+		$leoclock->html = '<span id="leoClockTime_'.$params->id.'" class="clock"></span>';
 
-			$script =
-'jQuery(document).ready(function(){
-	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"'.$timestamp.'});
-});';
-		}
-		else
-		{
-			$script =
-'jQuery(document).ready(function(){
-	jQuery("div#digital_clock").clock({"calendar":"false","format":"'.$format.'"});
-});';
-		}
-
-		$document = JFactory::getDocument();
-		$document->addScriptDeclaration($script);
-
-		return $html;
+		return $leoclock;
 	}
 
 	// Translate numbers
@@ -161,6 +134,30 @@ class ModDateTimeHelper
 		$dir = $translate ? '' : ' dir="rtl" ';
 
 		return $pretext.' <span'.$dir.'>'.$lunar_date.'</span>';
+	}
+
+	// Time Zone Text
+	public static function getTimeZoneText($params)
+	{
+		$pretext = JText::_($params->get('timezone_pretext',''));
+		$offset  = $params->get('offset', 'UTC');
+
+		list ($group, $locale) = explode('/', $offset, 2);
+
+		if($params->get('timezone_format') == 'custom' && $params->get('timezone_custom'))
+		{
+			$text = JText::_($params->get('timezone_custom'));
+		}
+		else if($params->get('timezone') == 'full')
+		{
+			$text = $group.' - '.$locale;
+		}
+		else
+		{
+			$text = $locale;
+		}
+
+		return $pretext.' '.$text;
 	}
 }
 

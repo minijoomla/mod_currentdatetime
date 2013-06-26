@@ -15,7 +15,7 @@ if($params->get('css'))
 	$document->addStyleDeclaration($params->get('css'));
 }
 
-if(in_array("analog", $items) || in_array("digital", $items))
+if(in_array("analog", $items))
 {
 	$document = JFactory::getDocument();
 
@@ -32,23 +32,14 @@ if(in_array("analog", $items) || in_array("digital", $items))
 		}
 	}
 
-	if(in_array("analog", $items))
+	$browser = new JBrowser();
+	if($browser->isBrowser('msie'))
 	{
-		$browser  = new JBrowser();
-		if($browser->isBrowser('msie'))
-		{
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/excanvas.js');
-		}
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/coolclock.js');
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/moreskins.js');
+		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/excanvas.js');
 	}
-
-	if(in_array("digital", $items))
-	{
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jqclock.js');
-	}
+	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/coolclock.js');
+	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/moreskins.js');
 }
-
 ?>
 
 <div class="datetime<?php echo $moduleclass_sfx ?>">
@@ -62,10 +53,14 @@ if(in_array("analog", $items) || in_array("digital", $items))
 				echo '<div class="time analog">'.$analog_clock.'</div>';
 				break;
 			case 'digital':
-				echo '<div class="time digital">'.$digital_clock.'<div id="digital_clock"></div></div>';
+				echo '<div class="time digital">'.$digital_clock->html.'</div>';
+				require_once JPATH_BASE . '/modules/mod_currentdatetime/js/leoclock.php';
 				break;
 			case 'day':
 				echo '<div class="dayname">'.$day_name.'</div>';
+				break;
+			case 'timezone':
+				echo '<div class="dayname">'.$timezone.'</div>';
 				break;
 			case 'gregorian':
 				echo '<div class="date gregorian">'.$gregorian_date.'</div>';
