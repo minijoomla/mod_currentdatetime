@@ -255,13 +255,13 @@ CoolClock.prototype = {
 
 	// Check the time and display the clock
 	refreshDisplay: function() {
-		var now = new Date();
 		if (this.gmtOffset != null) {
 			// Use GMT + gmtOffset
-			var offsetNow = new Date(now.valueOf() + (this.gmtOffset * 1000 * 60 * 60));
-			this.render(offsetNow.getUTCHours(),offsetNow.getUTCMinutes(),offsetNow.getUTCSeconds());
+			var now = window['leoClockUpdate_' + this.gmtOffset + '_CoolClock']();
+			this.render(now.getHours(),now.getMinutes(),now.getSeconds());
 		}
 		else {
+			var now = new Date();
 			// Use local time
 			this.render(now.getHours(),now.getMinutes(),now.getSeconds());
 		}

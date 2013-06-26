@@ -28,8 +28,10 @@ class ModDateTimeHelper
 		$source      = $params->get('analog_source', 'client');
 		$offset      = $params->get('offset', 'UTC');
 
-		$date        = new JDate('now',$offset);
-		$GMTOffset   = $source == 'gmt' ? $date->getOffsetFromGMT(true) : '';
+		$GMTOffset   = $source == 'gmt' ? $params->id : '';
+
+		date_default_timezone_set($offset); 
+		$time = date("F d, Y H:i:s");
 
 		$clockString = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
 
@@ -148,7 +150,7 @@ class ModDateTimeHelper
 		{
 			$text = JText::_($params->get('timezone_custom'));
 		}
-		else if($params->get('timezone') == 'full')
+		else if($params->get('timezone_format') == 'full')
 		{
 			$text = $group.' - '.$locale;
 		}
