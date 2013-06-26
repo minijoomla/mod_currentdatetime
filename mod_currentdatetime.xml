@@ -307,6 +307,10 @@
 					class="ltr"
 					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
 					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="hidden"
+					default="0" />
 			</fieldset>
 		</fields>
 	</config>
