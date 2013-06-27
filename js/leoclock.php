@@ -87,7 +87,7 @@ defined('_JEXEC') or die;
 
 		for(var i = 0; i <= 9; i++)
 		{
-			currentTimeString_<?php echo $params->id; ?> = currentTimeString_<?php echo $params->id; ?>.replace(i, numbers[i], "g");
+			currentTimeString_<?php echo $params->id; ?> = currentTimeString_<?php echo $params->id; ?>.replace(new RegExp(i, 'gi'), numbers[i]);
 		}
 
 		// Update the time display

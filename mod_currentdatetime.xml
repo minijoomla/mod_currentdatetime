@@ -11,11 +11,10 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
 	<authorUrl>www.mhehm.ir</authorUrl>
-	<version>3.1.1.4</version>
+	<version>1.4</version>
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
-		<folder>css</folder>
 		<folder>fields</folder>
 		<folder>js</folder>
 		<folder>language</folder>
@@ -45,16 +44,6 @@
 					default="analog,digital,gregorian,solar,lunar"
 					label="MOD_CURRENTDATETIME_FIELD_STATUS_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_STATUS_DESC" />
-				<field
-					name="jquery"
-					type="radio"
-					class="btn-group"
-					default="1"
-					label="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_LABEL"
-					description="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_DESC">
-					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
 				<field
 					name="css"
 					type="textarea"
@@ -176,6 +165,16 @@
 					description="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_DESC">
 					<option value="client">MOD_CURRENTDATETIME_CLOCK_SOURCE_CLIENT</option>
 					<option value="gmt">MOD_CURRENTDATETIME_CLOCK_SOURCE_GMT</option>
+				</field>
+				<field
+					name="jquery"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_LOAD_JQUERY_DESC">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
 				</field>
 			</fieldset>
 			<fieldset name="digital" label="MOD_CURRENTDATETIME_DIGITAL_CLOCK">

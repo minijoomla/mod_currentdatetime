@@ -28,17 +28,17 @@ if(in_array("analog", $items))
 		}
 		else
 		{
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.min.js');
 		}
 	}
 
 	$browser = new JBrowser();
 	if($browser->isBrowser('msie'))
 	{
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/excanvas.js');
+		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/excanvas.min.js');
 	}
-	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/coolclock.js');
-	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/moreskins.js');
+	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/coolclock.min.js');
+	$document->addScript(JURI::root().'modules/mod_currentdatetime/js/moreskins.min.js');
 }
 ?>
 

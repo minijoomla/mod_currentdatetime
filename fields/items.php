@@ -45,29 +45,29 @@ class JFormFieldItems extends JFormFieldList
 		if($joomlaVersion->isCompatible('3'))
 		{
 			JHtml::_('jquery.ui', array('core', 'sortable'));
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.min.js');
 			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
 			$document->addScriptDeclaration($script);
 		}
 		else
 		{
-			$document->addStyleSheet(JURI::root().'modules/mod_currentdatetime/css/chosen.css');
+			$document->addStyleSheet(JURI::root().'modules/mod_currentdatetime/js/25/css/chosen.min.css');
 
 			// Joomla 2.5 sortable chosen with jQuery
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-noconflict.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/chosen.jquery.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.core.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.widget.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.mouse.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery.ui.sortable.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery-noconflict.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/chosen.jquery.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.core.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.widget.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.mouse.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.sortable.min.js');
+			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.min.js');
 			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
 			$document->addScriptDeclaration($script);
 
 			// Joomla 2.5 sortable chosen with mootools
-			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/chosen.mootools.min.js');
-			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/mootools-chosen-sortable.js');
+			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/chosen.mootools.min.js');
+			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/mootools-chosen-sortable.js');
 		}
 
 		if(!is_array($this->value))
