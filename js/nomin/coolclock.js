@@ -129,15 +129,12 @@ CoolClock.prototype = {
 		this.ctx.globalAlpha = skin.alpha;
 		this.ctx.lineWidth = skin.lineWidth;
 
-		if (!CoolClock.config.isIE) {
-			this.ctx.beginPath();
-		}
-
 		if (CoolClock.config.isIE) {
 			// excanvas doesn't scale line width so we will do it here
 			this.ctx.lineWidth = this.ctx.lineWidth * this.scale;
 		}
 
+		this.ctx.beginPath();
 		this.ctx.arc(x, y, skin.radius, 0, 2*Math.PI, false);
 
 		if (CoolClock.config.isIE) {
