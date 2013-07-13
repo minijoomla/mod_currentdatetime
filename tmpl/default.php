@@ -63,7 +63,7 @@ if(in_array("analog", $items))
 		switch ($item)
 		{
 			case 'analog':
-				echo '<div class="time analog">'.$analog_clock.'</div>';
+				echo '<div class="time analog">'.$analog_clock->string.'</div>';
 				if($params->get('analog_source') == 'gmt')
 				{
 					require_once JPATH_BASE . '/modules/mod_currentdatetime/js/coolclock-leoclock.php';

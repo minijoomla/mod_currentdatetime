@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 ?>
 <script type="text/javascript" >
-	var currentTime_<?php echo $params->id; ?>_CoolClock = new Date("<?php echo $digital_clock->time; ?>");
+	var currentTime_<?php echo $params->id; ?>_CoolClock = new Date("<?php echo $analog_clock->time; ?>");
 
 	var jstime_<?php echo $params->id; ?>_CoolClock = new Date().getTime() - 1000;
 

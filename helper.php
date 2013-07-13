@@ -20,6 +20,8 @@ class ModDateTimeHelper
 	// Analog Clock
 	public static function getAnalogClock($params)
 	{
+		$clock = new stdClass();
+
 		$skin        = $params->get('analog_skin', 'swissRail');
 		$radius      = $params->get('analog_radius', 85);
 		$showseconds = $params->get('analog_seconds', 'noSeconds');
@@ -31,11 +33,11 @@ class ModDateTimeHelper
 		$GMTOffset   = $source == 'gmt' ? $params->id : '';
 
 		date_default_timezone_set($offset); 
-		$time = date("F d, Y H:i:s");
+		$clock->time = date("F d, Y H:i:s");
 
-		$clockString = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
+		$clock->string = "<canvas dir='ltr' id='analog_clock' class='CoolClock:$skin:$radius:$showseconds:$GMTOffset:$showDigital:$logClock'></canvas>";
 
-		return $clockString;
+		return $clock;
 	}
 
 	// Digital Clock
