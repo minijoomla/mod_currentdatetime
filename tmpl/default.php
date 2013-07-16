@@ -28,7 +28,7 @@ if(in_array("analog", $items))
 		}
 		else
 		{
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.min.js');
+			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/25/jquery.min.js');
 		}
 	}
 
@@ -37,20 +37,20 @@ if(in_array("analog", $items))
 		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/nomin/excanvas.js');
+			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/excanvas.js');
 		}
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/nomin/coolclock.js');
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/nomin/moreskins.js');
+		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/coolclock.js');
+		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/moreskins.js');
 	}
 	else
 	{
 		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/excanvas.min.js');
+			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/excanvas.min.js');
 		}
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/coolclock.min.js');
-		$document->addScript(JURI::root().'modules/mod_currentdatetime/js/moreskins.min.js');
+		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/coolclock.min.js');
+		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/moreskins.min.js');
 	}
 }
 ?>
