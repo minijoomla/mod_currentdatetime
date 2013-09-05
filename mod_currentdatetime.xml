@@ -5,13 +5,13 @@
 	client="site"
 	method="upgrade">
 	<name>mod_currentdatetime</name>
-	<author>Mohammad Hasani Eghteadr</author>
+	<author>Mohammad Hasani Eghtedar</author>
 	<creationDate>May 2013</creationDate>
 	<copyright>Copyright (C) 2005 - 2013 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
 	<authorUrl>www.mhehm.ir</authorUrl>
-	<version>1.5</version>
+	<version>1.6</version>
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
@@ -304,6 +304,11 @@
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
+				<field
+					name="class_sfx"
+					type="text"
+					label="MOD_CURRENTDATETIME_FIELD_CLASS_SFX_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_CLASS_SFX_DESC" />
 				<field
 					name="layout"
 					type="modulelayout"

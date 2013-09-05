@@ -55,7 +55,7 @@ if(in_array("analog", $items))
 }
 ?>
 
-<div class="datetime<?php echo $moduleclass_sfx ?>">
+<div class="datetime<?php echo $params->get('class_sfx') ?>" id="datetime_<?php echo $module->id; ?>">
 <?php
 	// echo items by order
 	foreach($items as $item)
