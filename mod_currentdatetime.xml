@@ -7,10 +7,10 @@
 	<name>mod_currentdatetime</name>
 	<author>Mohammad Hasani Eghtedar</author>
 	<creationDate>May 2013</creationDate>
-	<copyright>Copyright (C) 2005 - 2013 Open Source Matters. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2013 - 2014 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
-	<authorUrl>www.mhehm.ir</authorUrl>
+	<authorUrl>mhehm.ir</authorUrl>
 	<version>1.6</version>
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
@@ -329,6 +329,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" priority="1" name="Current Date and Time Module">https://raw.github.com/mhehm/mod_currentdatetime/master/update.xml</server>
+		<server type="extension" priority="1" name="Current Date and Time Module">http://mhehm.ir/updates/mod_currentdatetime.xml</server>
 	</updateservers>
 </extension>
