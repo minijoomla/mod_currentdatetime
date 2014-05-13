@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  mod_currentdatetime
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -60,9 +60,13 @@ defined('_JEXEC') or die;
 		}
 
 		// Pad the hours, minutes and seconds with leading zeros, if required
-		if(leadingZeros_<?php echo $params->id; ?>)
+		if(leadingZeros_<?php echo $params->id; ?> == 1)
 		{
 			currentHours_<?php echo $params->id; ?> = ( currentHours_<?php echo $params->id; ?> < 10 ? "0" : "" ) + currentHours_<?php echo $params->id; ?>;
+		}
+
+		if(leadingZeros_<?php echo $params->id; ?> == 1 || leadingZeros_<?php echo $params->id; ?> == 'nothour')
+		{
 			currentMinutes_<?php echo $params->id; ?> = ( currentMinutes_<?php echo $params->id; ?> < 10 ? "0" : "" ) + currentMinutes_<?php echo $params->id; ?>;
 			currentSeconds_<?php echo $params->id; ?> = ( currentSeconds_<?php echo $params->id; ?> < 10 ? "0" : "" ) + currentSeconds_<?php echo $params->id; ?>;
 		}

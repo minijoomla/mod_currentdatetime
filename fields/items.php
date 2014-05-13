@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  Form
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -40,38 +40,36 @@ class JFormFieldItems extends JFormFieldList
 	protected function getInput()
 	{
 		$document = JFactory::getDocument();
+		$jsPath   = JURI::root(true) . '/modules/mod_currentdatetime/js';
 
 		$joomlaVersion = new JVersion();
+
 		if($joomlaVersion->isCompatible('3'))
 		{
 			JHtml::_('jquery.ui', array('core', 'sortable'));
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.min.js');
-			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
-			$document->addScriptDeclaration($script);
 		}
 		else
 		{
-			$document->addStyleSheet(JURI::root().'modules/mod_currentdatetime/js/25/css/chosen.min.css');
+			$document->addStyleSheet($jsPath . '/25/css/chosen.min.css');
 
-			// Joomla 2.5 sortable chosen with jQuery
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery-noconflict.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/chosen.jquery.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.core.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.widget.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.mouse.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/jquery.ui.sortable.min.js');
-			$document->addScript(JURI::root().'modules/mod_currentdatetime/js/jquery-chosen-sortable.min.js');
-			$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
-			$document->addScriptDeclaration($script);
-
-			// Joomla 2.5 sortable chosen with mootools
-			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/chosen.mootools.min.js');
-			// $document->addScript(JURI::root().'modules/mod_currentdatetime/js/25/mootools-chosen-sortable.js');
+			$document->addScript($jsPath . '/25/jquery.min.js');
+			$document->addScript($jsPath . '/25/jquery-noconflict.js');
+			$document->addScript($jsPath . '/25/chosen.jquery.min.js');
+			$document->addScript($jsPath . '/25/jquery.ui.core.min.js');
+			$document->addScript($jsPath . '/25/jquery.ui.widget.min.js');
+			$document->addScript($jsPath . '/25/jquery.ui.mouse.min.js');
+			$document->addScript($jsPath . '/25/jquery.ui.sortable.min.js');
 		}
 
+		$document->addScript($jsPath . '/jquery-chosen-sortable.min.js');
+
+		$script = 'jQuery(function(){jQuery(".chzn-sortable").chosen().chosenSortable();});';
+		$document->addScriptDeclaration($script);
+
 		if(!is_array($this->value))
+		{
 			$this->value = explode(',',$this->value);
+		}
 
 		$html = parent::getInput();
 		
@@ -109,7 +107,7 @@ class JFormFieldItems extends JFormFieldList
 	// SOrt an array based on other array
 	// @param $array array need to sort
 	// @param $orderArray based array consider as correct order;
-	function sort_array_from_array($array,$orderArray)
+	function sort_array_from_array($array, $orderArray)
 	{
 		$ordered = array();
 		foreach($orderArray as $key => $value)

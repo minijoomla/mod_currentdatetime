@@ -3,22 +3,23 @@
  * @package     Joomla.Site
  * @subpackage  mod_currentdatetime
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
+$document = JFactory::getDocument();
+$jsPath   = JURI::root(true) . '/modules/mod_currentdatetime/js';
+
 if($params->get('css'))
 {
-	$document = JFactory::getDocument();
+	
 	$document->addStyleDeclaration($params->get('css'));
 }
 
 if(in_array("analog", $items))
 {
-	$document = JFactory::getDocument();
-
 	if($params->get('jquery',1))
 	{
 		$joomlaVersion = new JVersion();
@@ -28,7 +29,7 @@ if(in_array("analog", $items))
 		}
 		else
 		{
-			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/25/jquery.min.js');
+			$document->addScript($jsPath . '/25/jquery.min.js');
 		}
 	}
 
@@ -37,20 +38,20 @@ if(in_array("analog", $items))
 		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
-			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/excanvas.js');
+			$document->addScript($jsPath . '/nomin/excanvas.js');
 		}
-		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/coolclock.js');
-		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/nomin/moreskins.js');
+		$document->addScript($jsPath . '/nomin/coolclock.js');
+		$document->addScript($jsPath . '/nomin/moreskins.js');
 	}
 	else
 	{
 		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
-			$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/excanvas.min.js');
+			$document->addScript($jsPath . '/excanvas.min.js');
 		}
-		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/coolclock.min.js');
-		$document->addScript(JURI::base(true).'/modules/mod_currentdatetime/js/moreskins.min.js');
+		$document->addScript($jsPath . '/coolclock.min.js');
+		$document->addScript($jsPath . '/moreskins.min.js');
 	}
 }
 ?>
@@ -63,30 +64,36 @@ if(in_array("analog", $items))
 		switch ($item)
 		{
 			case 'analog':
-				echo '<div class="time analog">'.$analog_clock->string.'</div>';
+				echo '<div class="time analog">' . $analog_clock->string . '</div>';
 				if($params->get('analog_source') == 'gmt')
 				{
-					require_once JPATH_BASE . '/modules/mod_currentdatetime/js/coolclock-leoclock.php';
+					require_once JPATH_ROOT . '/modules/mod_currentdatetime/js/coolclock-leoclock.php';
 				}
 				break;
+
 			case 'digital':
-				echo '<div class="time digital">'.$digital_clock->html.'</div>';
-				require_once JPATH_BASE . '/modules/mod_currentdatetime/js/leoclock.php';
+				echo '<div class="time digital">' . $digital_clock->html . '</div>';
+				require_once JPATH_ROOT . '/modules/mod_currentdatetime/js/leoclock.php';
 				break;
+
 			case 'day':
-				echo '<div class="dayname">'.$day_name.'</div>';
+				echo '<div class="dayname">' . $day_name . '</div>';
 				break;
+
 			case 'timezone':
-				echo '<div class="timezone">'.$timezone.'</div>';
+				echo '<div class="timezone">' . $timezone . '</div>';
 				break;
+
 			case 'gregorian':
-				echo '<div class="date gregorian">'.$gregorian_date.'</div>';
+				echo '<div class="date gregorian">' . $gregorian_date . '</div>';
 				break;
+
 			case 'solar':
-				echo '<div class="date solar">'.$solar_date.'</div>';
+				echo '<div class="date solar">' . $solar_date . '</div>';
 				break;
+
 			case 'lunar':
-				echo '<div class="date lunar">'.$lunar_date.'</div>';
+				echo '<div class="date lunar">' . $lunar_date . '</div>';
 				break;
 		}
 	}

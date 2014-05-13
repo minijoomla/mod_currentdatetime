@@ -206,6 +206,7 @@
 					label="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_LEADING_ZEROS_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_DIGITAL_CLOCK_LEADING_ZEROS_DESC">
 					<option value="1">JYES</option>
+					<option value="nothour">MOD_CURRENTDATETIME_DIGITAL_CLOCK_LEADING_ZEROS_NOTHOUR</option>
 					<option value="0">JNO</option>
 				</field>
 			</fieldset>
