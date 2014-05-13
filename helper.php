@@ -146,6 +146,11 @@ class ModDateTimeHelper
 		$pretext = JText::_($params->get('timezone_pretext',''));
 		$offset  = $params->get('offset', 'UTC');
 
+		if($offset == 'UTC')
+		{
+			$offset = 'UTC/UTC';
+		}
+
 		list ($group, $locale) = explode('/', $offset, 2);
 
 		if($params->get('timezone_format') == 'custom' && $params->get('timezone_custom'))
@@ -155,10 +160,20 @@ class ModDateTimeHelper
 		else if($params->get('timezone_format') == 'full')
 		{
 			$text = $group.' - '.$locale;
+
+			if($offset == 'UTC/UTC')
+			{
+				return 'Universal Time, Coordinated (UTC)';
+			}
 		}
 		else
 		{
 			$text = $locale;
+
+			if($offset == 'UTC/UTC')
+			{
+				return 'UTC';
+			}
 		}
 
 		return $pretext.' '.$text;
