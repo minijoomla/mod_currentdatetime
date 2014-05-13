@@ -77,7 +77,7 @@ if(in_array("analog", $items))
 				echo '<div class="dayname">'.$day_name.'</div>';
 				break;
 			case 'timezone':
-				echo '<div class="dayname">'.$timezone.'</div>';
+				echo '<div class="timezone">'.$timezone.'</div>';
 				break;
 			case 'gregorian':
 				echo '<div class="date gregorian">'.$gregorian_date.'</div>';
