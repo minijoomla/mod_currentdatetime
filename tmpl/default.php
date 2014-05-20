@@ -67,13 +67,13 @@ if(in_array("analog", $items))
 				echo '<div class="time analog">' . $analog_clock->string . '</div>';
 				if($params->get('analog_source') == 'gmt')
 				{
-					require_once JPATH_ROOT . '/modules/mod_currentdatetime/js/coolclock-leoclock.php';
+					require JPATH_ROOT . '/modules/mod_currentdatetime/js/coolclock-leoclock.php';
 				}
 				break;
 
 			case 'digital':
 				echo '<div class="time digital">' . $digital_clock->html . '</div>';
-				require_once JPATH_ROOT . '/modules/mod_currentdatetime/js/leoclock.php';
+				require JPATH_ROOT . '/modules/mod_currentdatetime/js/leoclock.php';
 				break;
 
 			case 'day':
