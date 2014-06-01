@@ -119,12 +119,15 @@ class ModDateTimeHelper
 	// Lunar Date
 	public static function getLunarDate($params)
 	{
-		$translate = $params->get('lunar_date_language', 1);
-		$pretext   = JText::_($params->get('lunar_date_pretext', ''));
-		$format    = $params->get('lunar_date_format', JText::_('DATE_FORMAT_LC1'));
-		$offset    = $params->get('offset', 'UTC');
+		$translate  = $params->get('lunar_date_language', 1);
+		$pretext    = JText::_($params->get('lunar_date_pretext', ''));
+		$format     = $params->get('lunar_date_format', JText::_('DATE_FORMAT_LC1'));
+		$offset     = $params->get('offset', 'UTC');
+		$daySetting = $params->get('lunar_day_setting', 0);
 
-		$date      = new LunarDate('now', $offset);
+		$date       = new LunarDate('now', $offset);
+
+		$date->modify($daySetting . " days");
 
 		if(!$translate)
 		{
@@ -132,7 +135,7 @@ class ModDateTimeHelper
 			$language->load('mod_currentdatetime', dirname(__FILE__), 'ar-AA', true, false);
 		}
 
-		$lunar_date = $date->calendar($format, true, $translate,$params->get('lunar_day_setting',0));
+		$lunar_date = $date->calendar($format, true, $translate);
 		$lunar_date = self::translateNumbers($lunar_date);
 
 		$dir = $translate ? '' : ' dir="rtl" ';
@@ -397,8 +400,6 @@ class LunarDate extends JDate
 	const AM_UPPER      = "\x043\x03";
 	const LUNAR_EPOCH   = 1948439.5;
 
-	public static $lunar_day_setting = 0;
-
 	/**
 	 * Translates month number to a string.
 	 *
@@ -451,10 +452,8 @@ class LunarDate extends JDate
 	 *
 	 * @since   11.1
 	 */
-	public function calendar($format, $local = false, $translate = true, $lunar_day_setting = 0)
+	public function calendar($format, $local = false, $translate = true)
 	{
-		self::$lunar_day_setting = $lunar_day_setting;
-
 		// Do string replacements for date format options that can be translated.
 		$format = preg_replace('/(^|[^\\\])d/', "\\1".self::DAY_NUMBER2, $format);
 		$format = preg_replace('/(^|[^\\\])j/', "\\1".self::DAY_NUMBER, $format);
@@ -535,7 +534,7 @@ class LunarDate extends JDate
 		$jd    = floor($jd) + 0.5;
 		$year  = floor(((30 * ($jd - self::LUNAR_EPOCH)) + 10646) / 10631);
 		$month = min(12, ceil(($jd - (29 + self::lunartojd(1, 1, $year))) / 29.5) + 1);
-		$day   = ($jd - self::lunartojd($month, 1, $year)) + self::$lunar_day_setting;
+		$day   = ($jd - self::lunartojd($month, 1, $year)) + 1;
 
 		return array('year'=>$year, 'mon'=>$month,'day'=> $day);
 	}
