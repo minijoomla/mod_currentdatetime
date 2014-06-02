@@ -10,7 +10,7 @@
 defined('_JEXEC') or die;
 ?>
 <script type="text/javascript" >
-	var currentTime_<?php echo $params->id; ?> = new Date("<?php echo $digital_clock->time; ?>");
+	var currentTime_<?php echo $params->id; ?> = new Date(<?php echo ($digital_clock->source == 'gmt' ? '"' . $digital_clock->time . '"' : ''); ?>);
 	var format_<?php echo $params->id; ?> = "<?php echo $digital_clock->format; ?>";
 	var seconds_<?php echo $params->id; ?> = <?php echo $digital_clock->seconds; ?>;
 	var leadingZeros_<?php echo $params->id; ?> = "<?php echo $digital_clock->leadingZeros; ?>";

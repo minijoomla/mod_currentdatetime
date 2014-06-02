@@ -49,8 +49,9 @@ class ModDateTimeHelper
 		$leoclock->format       = $params->get('digital_format', '12h');
 		$leoclock->seconds      = $params->get('digital_seconds', 1);
 		$leoclock->leadingZeros = $params->get('digital_leadingZeros', 1);
+		$leoclock->source       = $params->get('digital_source', 'client');
 
-		date_default_timezone_set($leoclock->offset); 
+		date_default_timezone_set($leoclock->offset);
 		$leoclock->time = date("F d, Y H:i:s");
 
 		$leoclock->html = '<span id="leoClockTime_' . $params->id . '" class="clock"></span>';

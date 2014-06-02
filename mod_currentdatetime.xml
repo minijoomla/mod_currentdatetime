@@ -179,6 +179,16 @@
 			</fieldset>
 			<fieldset name="digital" label="MOD_CURRENTDATETIME_DIGITAL_CLOCK">
 				<field
+					name="digital_source"
+					type="radio"
+					class="btn-group"
+					default="client"
+					label="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_LABEL"
+					description="MOD_CURRENTDATETIME_FIELD_CLOCK_SOURCE_DESC">
+					<option value="client">MOD_CURRENTDATETIME_CLOCK_SOURCE_CLIENT</option>
+					<option value="gmt">MOD_CURRENTDATETIME_CLOCK_SOURCE_GMT</option>
+				</field>
+				<field
 					name="digital_format"
 					type="radio"
 					class="btn-group"
