@@ -185,6 +185,7 @@ class ModDateTimeHelper
 }
 
 // Solar Date Class
+// Based on https://www.fourmilab.ch/documents/calendar/
 class SolarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";
@@ -385,6 +386,7 @@ class SolarDate extends JDate
 }
 
 // Lunar Date Class
+// Based on https://www.fourmilab.ch/documents/calendar/
 class LunarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";
