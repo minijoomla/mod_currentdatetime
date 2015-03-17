@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  mod_currentdatetime
  *
- * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -14,7 +14,6 @@ $jsPath   = JURI::root(true) . '/modules/mod_currentdatetime/js';
 
 if($params->get('css'))
 {
-	
 	$document->addStyleDeclaration($params->get('css'));
 }
 
@@ -23,6 +22,7 @@ if(in_array("analog", $items))
 	if($params->get('jquery',1))
 	{
 		$joomlaVersion = new JVersion();
+
 		if($joomlaVersion->isCompatible('3'))
 		{
 			JHtml::_('jquery.framework');
@@ -33,23 +33,25 @@ if(in_array("analog", $items))
 		}
 	}
 
+	$browser = new JBrowser();
+
 	if($params->get('debug_mode',0))
 	{
-		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
 			$document->addScript($jsPath . '/nomin/excanvas.js');
 		}
+
 		$document->addScript($jsPath . '/nomin/coolclock.js');
 		$document->addScript($jsPath . '/nomin/moreskins.js');
 	}
 	else
 	{
-		$browser = new JBrowser();
 		if($browser->isBrowser('msie'))
 		{
 			$document->addScript($jsPath . '/excanvas.min.js');
 		}
+
 		$document->addScript($jsPath . '/coolclock.min.js');
 		$document->addScript($jsPath . '/moreskins.min.js');
 	}

@@ -3,7 +3,7 @@
  * @package     Joomla.Site
  * @subpackage  mod_currentdatetime
  *
- * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -15,7 +15,7 @@ defined('_JEXEC') or die;
  * @package     Joomla.Site
  * @subpackage  mod_currentdatetime
  */
-class ModDateTimeHelper
+abstract class ModDateTimeHelper
 {
 	// Analog Clock
 	public static function getAnalogClock($params)
@@ -185,7 +185,6 @@ class ModDateTimeHelper
 }
 
 // Solar Date Class
-// Based on https://www.fourmilab.ch/documents/calendar/
 class SolarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";
@@ -386,7 +385,6 @@ class SolarDate extends JDate
 }
 
 // Lunar Date Class
-// Based on https://www.fourmilab.ch/documents/calendar/
 class LunarDate extends JDate
 {
 	const DAY_NUMBER    = "\x027\x03";

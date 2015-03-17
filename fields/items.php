@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  Form
  *
- * @copyright   Copyright (C) 2013 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2013 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
@@ -55,10 +55,7 @@ class JFormFieldItems extends JFormFieldList
 			$document->addScript($jsPath . '/25/jquery.min.js');
 			$document->addScript($jsPath . '/25/jquery-noconflict.js');
 			$document->addScript($jsPath . '/25/chosen.jquery.min.js');
-			$document->addScript($jsPath . '/25/jquery.ui.core.min.js');
-			$document->addScript($jsPath . '/25/jquery.ui.widget.min.js');
-			$document->addScript($jsPath . '/25/jquery.ui.mouse.min.js');
-			$document->addScript($jsPath . '/25/jquery.ui.sortable.min.js');
+			$document->addScript($jsPath . '/25/jquery-ui.min.js');
 		}
 
 		$document->addScript($jsPath . '/jquery-chosen-sortable.min.js');
@@ -104,9 +101,14 @@ class JFormFieldItems extends JFormFieldList
 		return $options;
 	}
 
-	// SOrt an array based on other array
-	// @param $array array need to sort
-	// @param $orderArray based array consider as correct order;
+	/**
+	* Sort an array based on other array
+	*
+	* @param $array array need to sort
+	* @param $orderArray based array consider as correct order;
+	*
+	* @return  array  ordered array.
+	*/
 	function sort_array_from_array($array, $orderArray)
 	{
 		$ordered = array();
