@@ -230,6 +230,7 @@
 					name="gregorian_date_format"
 					type="text"
 					size="15"
+					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
@@ -255,6 +256,7 @@
 					name="solar_date_format"
 					type="text"
 					size="15"
+					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
@@ -280,6 +282,7 @@
 					name="lunar_date_format"
 					type="text"
 					size="15"
+					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
