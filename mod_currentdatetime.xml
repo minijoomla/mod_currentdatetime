@@ -12,21 +12,12 @@
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
 		<folder>fields</folder>
+		<folder>language</folder>
 		<folder>js</folder>
 		<folder>tmpl</folder>
 		<filename>helper.php</filename>
 		<filename>mod_currentdatetime.xml</filename>
 	</files>
-	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.mod_currentdatetime.ini</language>
-		<language tag="en-GB">en-GB/en-GB.mod_currentdatetime.sys.ini</language>
-		<language tag="fa-IR">fa-IR/fa-IR.mod_currentdatetime.ini</language>
-		<language tag="fa-IR">fa-IR/fa-IR.mod_currentdatetime.sys.ini</language>
-		<language tag="ar-AA">ar-AA/ar-AA.mod_currentdatetime.ini</language>
-		<language tag="ar-AA">ar-AA/ar-AA.mod_currentdatetime.sys.ini</language>
-		<language tag="ms-MY">ms-MY/ms-MY.mod_currentdatetime.ini</language>
-		<language tag="ms-MY">ms-MY/ms-MY.mod_currentdatetime.sys.ini</language>
-	</languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/modules/mod_currentdatetime/fields">
