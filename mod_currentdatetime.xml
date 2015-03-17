@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension
-	type="module"
-	version="3.1"
-	client="site"
-	method="upgrade">
+<extension type="module" version="3.1" client="site" method="upgrade">
 	<name>mod_currentdatetime</name>
 	<author>Mohammad Hasani Eghtedar</author>
 	<creationDate>May 2013</creationDate>
-	<copyright>Copyright (C) 2013 - 2014 Open Source Matters. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2013 - 2015 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>m.h.eghtedar@gmail.com</authorEmail>
-	<authorUrl>mhehm.ir</authorUrl>
-	<version>1.6</version>
+	<authorUrl>www.mhehm.ir</authorUrl>
+	<version>1.7</version>
 	<description>MOD_CURRENTDATETIME_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_currentdatetime">mod_currentdatetime.php</filename>
 		<folder>fields</folder>
 		<folder>js</folder>
-		<folder>language</folder>
 		<folder>tmpl</folder>
 		<filename>helper.php</filename>
-		<filename>index.html</filename>
 		<filename>mod_currentdatetime.xml</filename>
 	</files>
-	<languages>
-		<language tag="en-GB">language/en-GB/en-GB.mod_currentdatetime.ini</language>
-		<language tag="en-GB">language/en-GB/en-GB.mod_currentdatetime.sys.ini</language>
-		<language tag="fa-IR">language/fa-IR/fa-IR.mod_currentdatetime.ini</language>
-		<language tag="fa-IR">language/fa-IR/fa-IR.mod_currentdatetime.sys.ini</language>
-		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.ini</language>
-		<language tag="ar-AA">language/ar-AA/ar-AA.mod_currentdatetime.sys.ini</language>
-		<language tag="ms-MY">language/ms-MY/ms-MY.mod_currentdatetime.ini</language>
-		<language tag="ms-MY">language/ms-MY/ms-MY.mod_currentdatetime.sys.ini</language>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.mod_currentdatetime.ini</language>
+		<language tag="en-GB">en-GB/en-GB.mod_currentdatetime.sys.ini</language>
+		<language tag="fa-IR">fa-IR/fa-IR.mod_currentdatetime.ini</language>
+		<language tag="fa-IR">fa-IR/fa-IR.mod_currentdatetime.sys.ini</language>
+		<language tag="ar-AA">ar-AA/ar-AA.mod_currentdatetime.ini</language>
+		<language tag="ar-AA">ar-AA/ar-AA.mod_currentdatetime.sys.ini</language>
+		<language tag="ms-MY">ms-MY/ms-MY.mod_currentdatetime.ini</language>
+		<language tag="ms-MY">ms-MY/ms-MY.mod_currentdatetime.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
@@ -53,7 +47,7 @@
 					description="MOD_CURRENTDATETIME_FIELD_CSS_DESC" />
 			</fieldset>
 			<fieldset name="timezone" label="MOD_CURRENTDATETIME_TIMEZONE">
-			<field
+				<field
 					name="offset"
 					type="timezone"
 					default="UTC"
@@ -74,6 +68,7 @@
 				<field
 					name="timezone_custom"
 					type="text"
+					showon="timezone_format:custom"
 					filter="string"
 					label="MOD_CURRENTDATETIME_FIELD_TIMEZONE_CUSTOM_LABEL"
 					description="MOD_CURRENTDATETIME_FIELD_TIMEZONE_CUSTOM_DESC" />
@@ -235,7 +230,6 @@
 					name="gregorian_date_format"
 					type="text"
 					size="15"
-					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
@@ -261,7 +255,6 @@
 					name="solar_date_format"
 					type="text"
 					size="15"
-					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
@@ -287,7 +280,6 @@
 					name="lunar_date_format"
 					type="text"
 					size="15"
-					filter="raw"
 					class="ltr"
 					label="JGLOBAL_DATE_FORMAT_LABEL"
 					description="JGLOBAL_DATE_FORMAT_DESC" />
@@ -343,6 +335,6 @@
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" priority="1" name="Current Date and Time Module">http://mhehm.ir/updates/mod_currentdatetime.xml</server>
+		<server type="extension" priority="1" name="Current Date and Time Module">https://raw.githubusercontent.com/mhehm/mod_currentdatetime/master/update.xml</server>
 	</updateservers>
 </extension>
