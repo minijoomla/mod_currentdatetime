@@ -15,6 +15,6 @@ Module features:
 - Clock sources: client & GMT time based on server time
 - Ability to ordering above options for view
 
-[Mohammad Hasani Eghtedar](http://mhehm.ir) Joomla Extension Developer
+[Mohammad Hasani Eghtedar](http://www.mhehm.ir) Joomla Extension Developer
 
-[JED Page](http://extensions.joomla.org/extensions/calendars-a-events/time/content-date-a-time/24434) If you like this module please review it
+[JED Page](http://extensions.joomla.org/extensions/extension/calendars-a-events/time/current-date-time) If you like this module please review it
