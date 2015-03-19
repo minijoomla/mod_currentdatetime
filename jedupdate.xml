@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jedupdate version="1">
+	<core_body>
+This module displays the current date and time.
+
+Module features:
+- Define Time Zone
+- Show/Hide analog clock with different shapes
+- Show/Hide digital clock
+- Show/Hide current day name
+- Show/Hide current Time Zone
+- Show/Hide current Gregorian date
+- Show/Hide current Solar date
+- Show/Hide current Lunar date
+- Clock sources: client & GMT time based on server time
+- Ability to ordering above options for view
+...
+	</core_body>
+	
+	<!-- valid links only or leave blank -->
+	<homepage_link>https://github.com/mhehm/mod_currentdatetime</homepage_link>
+	<download_link>https://github.com/mhehm/mod_currentdatetime/releases</download_link>
+	<demo_link>http://www.sandoghdaftar.ir</demo_link>
+	<documentation_link>https://github.com/mhehm/mod_currentdatetime/wiki</documentation_link>
+	<support_link>https://github.com/mhehm/mod_currentdatetime/issues</support_link>
+	<license_link></license_link>
+	
+	<version>1.7</version>
+
+	<compatibility>
+		<version>25</version>
+		<version>30</version>
+	</compatibility>
+</jedupdate>
