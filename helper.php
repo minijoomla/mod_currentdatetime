@@ -308,7 +308,7 @@ class SolarDate extends JDate
 		}
 		if (strpos($return, self::MONTH_LENGTH) !== false)
 		{
-			$return = str_replace(self::MONTH_LENGTH, $m < 7 ? 31 : $m < 12 ? 30 : self::leap_solar($y) ? 30 : 29 , $return);
+			$return = str_replace(self::MONTH_LENGTH, $m < 7 ? 31 : ($m < 12 ? 30 : (self::leap_solar($y) ? 30 : 29)) , $return);
 		}
 		if (strpos($return, self::YEAR_ABBR) !== false)
 		{
@@ -508,7 +508,7 @@ class LunarDate extends JDate
 		}
 		if (strpos($return, self::MONTH_LENGTH) !== false)
 		{
-			$return = str_replace(self::MONTH_LENGTH, ($m == 12) && self::leap_lunar($y) ? 30 : $m % 2 ? 30 : 29 , $return);
+			$return = str_replace(self::MONTH_LENGTH, ($m == 12) && self::leap_lunar($y) ? 30 : ($m % 2 ? 30 : 29) , $return);
 		}
 		if (strpos($return, self::YEAR_ABBR) !== false)
 		{
